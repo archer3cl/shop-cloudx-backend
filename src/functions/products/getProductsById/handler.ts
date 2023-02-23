@@ -1,16 +1,32 @@
-import type { ValidatedEventAPIGatewayProxyEvent } from '@libs/api-gateway';
 import { formatJSONResponse } from '@libs/api-gateway';
 import { middyfy } from '@libs/lambda';
+import { APIGatewayEvent } from 'aws-lambda';
+import { products } from 'src/mocks/data';
+import { Product } from 'src/models/Product';
 
-import schema from './schema';
+const getProductsById = async (event: APIGatewayEvent) => {
+  const productId = event.pathParameters?.productId;
 
-const hello: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (
-  event
-) => {
-  return formatJSONResponse({
-    message: `Hello ${event.body.name}, welcome to the exciting Serverless world!`,
-    event,
-  });
+  if (productId) {
+    const product = products.find((p) => p.id === productId);
+    if (product) {
+      return apiResponses._200(product);
+    }
+  }
+
+  return apiResponses._400({ message: 'Product not found' });
 };
 
-export const main = middyfy(hello);
+const apiResponses = {
+  _200: (data: Product) => {
+    return formatJSONResponse({
+      data,
+    });
+  },
+  _400: (body: { [key: string]: any }) => ({
+    statusCode: 400,
+    body: JSON.stringify(body),
+  }),
+};
+
+export const main = middyfy(getProductsById);
