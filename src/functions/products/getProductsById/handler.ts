@@ -1,10 +1,12 @@
 import { formatJSONResponse } from '@libs/api-gateway';
 import { middyfy } from '@libs/lambda';
-import { APIGatewayEvent } from 'aws-lambda';
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import { products } from 'src/mocks/data';
 import { Product } from 'src/models/Product';
 
-const getProductsById = async (event: APIGatewayEvent) => {
+const getProductsById = async (
+  event: APIGatewayProxyEvent
+): Promise<APIGatewayProxyResult> => {
   const productId = event.pathParameters?.productId;
 
   if (productId) {
