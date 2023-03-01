@@ -1,0 +1,76 @@
+openapi: 3.0.3
+info:
+  title: CloudX Shop API
+  description: Shop API for front end app
+  version: 0.1.0
+  contact:
+    name: Alex Vieyra
+servers:
+  - url: https://jl65vcrxdl.execute-api.us-east-2.amazonaws.com/dev
+tags:
+  - name: products
+    description: Products API
+paths:
+  /products:
+    get:
+      tags:
+        - products
+      description: Returns all products.
+      operationId: getProductsList,
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+  /products/{productId}:
+    get:
+      tags:
+        - products
+      description: Get a single product.
+      operationId: getProductsById,
+      parameters:
+        - name: productId
+          in: path
+          description: ID of product to return
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Product'
+        '400':
+          description: Invalid ID supplied or product not found
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 7567ec4b-b10c-48c5-9345-fc73c48a80aa
+        title:
+          type: string
+          example: Product Title
+        description:
+          type: string
+          example: Sample description
+        price:
+          type: integer
+          format: int32
+          example: 10
