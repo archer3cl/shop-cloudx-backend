@@ -90,6 +90,8 @@ const config: Config.InitialOptions = {
     'src/(.*)': '<rootDir>/$1',
     '@functions/(.*)': '<rootDir>/functions/$1',
     '@libs/(.*)': '<rootDir>/libs/$1',
+    '@services/(.*)': '<rootDir>/services/$1',
+    '@models/(.*)': '<rootDir>/models/$1',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -123,7 +125,7 @@ const config: Config.InitialOptions = {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  rootDir: 'src',
+  rootDir: 'store/src',
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [

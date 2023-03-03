@@ -6,7 +6,7 @@ info:
   contact:
     name: Alex Vieyra
 servers:
-  - url: https://jl65vcrxdl.execute-api.us-east-2.amazonaws.com/dev
+  - url: https://ui3t64lo4h.execute-api.us-east-2.amazonaws.com/dev
 tags:
   - name: products
     description: Products API
@@ -15,6 +15,7 @@ paths:
     get:
       tags:
         - products
+      summary: Returns all products.
       description: Returns all products.
       operationId: getProductsList,
       responses:
@@ -29,10 +30,36 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Product'
+    post:
+      tags:
+        - products
+      summary: Add a new product to the store
+      description: Add a new product to the store
+      operationId: createProduct
+      requestBody:
+        description: Add a new product to the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProduct'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Product'
+        '400':
+          description: Invalid input
   /products/{productId}:
     get:
       tags:
         - products
+      summary: Get a single product.
       description: Get a single product.
       operationId: getProductsById,
       parameters:
@@ -74,3 +101,24 @@ components:
           type: integer
           format: int32
           example: 10
+        count:
+          type: integer
+          format: int32
+          example: 99
+    CreateProduct:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Product Title
+        description:
+          type: string
+          example: Sample description
+        price:
+          type: integer
+          format: int32
+          example: 10
+        count:
+          type: integer
+          format: int32
+          example: 99

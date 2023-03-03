@@ -1,0 +1,66 @@
+{
+  "shop-cloudx-backend-db-products-table-dev": [
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "S": "2aaafc6b-dec9-49c7-bc2b-615c48366e82" },
+          "title": { "S": "Apollotech B340" },
+          "description": {
+            "S": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design"
+          },
+          "price": { "N": "3750" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "S": "d341757c-5954-459e-98d5-ef6653381369" },
+          "title": { "S": "ABC 13 9370" },
+          "description": {
+            "S": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016"
+          },
+          "price": { "N": "3750" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "id": { "S": "390cf7f6-ada4-485c-be29-81b6599e6421" },
+          "title": { "S": "Incredible Cotton Bacon" },
+          "description": {
+            "S": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support"
+          },
+          "price": { "N": "3750" }
+        }
+      }
+    }
+  ],
+  "shop-cloudx-backend-db-stocks-table-dev": [
+    {
+      "PutRequest": {
+        "Item": {
+          "product_id": { "S": "2aaafc6b-dec9-49c7-bc2b-615c48366e82" },
+          "count": { "N": "873" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "product_id": { "S": "d341757c-5954-459e-98d5-ef6653381369" },
+          "count": { "N": "498" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "product_id": { "S": "390cf7f6-ada4-485c-be29-81b6599e6421" },
+          "count": { "N": "3" }
+        }
+      }
+    }
+  ]
+}

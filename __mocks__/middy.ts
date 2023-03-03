@@ -1,7 +1,4 @@
-const middy: any = jest.createMockFromModule('@middy/core');
-middy.mockImplementation((handler) => {
-  return {
-    use: jest.fn().mockReturnValue(handler),
-  };
-});
+const middy = {
+  ...jest.requireActual('@middy/core'),
+};
 module.exports = middy;

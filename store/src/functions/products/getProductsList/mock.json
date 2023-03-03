@@ -1,6 +1,7 @@
 {
+  "httpMethod": "GET",
   "headers": {
     "Content-Type": "application/json"
   },
-  "body": "{}"
+  "body": null
 }
