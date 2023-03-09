@@ -1,22 +1,30 @@
-import * as AWS from 'aws-sdk';
-export type GetItemOutput = AWS.DynamoDB.DocumentClient.GetItemOutput;
-export type QueryItem = AWS.DynamoDB.DocumentClient.QueryInput;
-export type QueryItemOutput = AWS.DynamoDB.DocumentClient.QueryOutput;
-export type ScanItem = AWS.DynamoDB.DocumentClient.ScanInput;
-export type ScanItemOutput = AWS.DynamoDB.DocumentClient.ScanOutput;
-export type BatchGetItem = AWS.DynamoDB.DocumentClient.BatchGetItemInput;
-export type BatchGetItemOutput = AWS.DynamoDB.DocumentClient.BatchGetItemOutput;
-export type PutItem = AWS.DynamoDB.DocumentClient.PutItemInput;
-export type PutItemOutput = AWS.DynamoDB.DocumentClient.PutItemOutput;
-export type TransactWriteItems =
-  AWS.DynamoDB.DocumentClient.TransactWriteItemsInput;
-export type TransactWriteItemsOutput =
-  AWS.DynamoDB.DocumentClient.TransactWriteItemsOutput;
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import {
+  DynamoDBDocumentClient,
+  BatchGetCommand,
+  BatchGetCommandInput,
+  BatchGetCommandOutput,
+  GetCommand,
+  GetCommandOutput,
+  PutCommand,
+  PutCommandInput,
+  PutCommandOutput,
+  QueryCommand,
+  QueryCommandInput,
+  QueryCommandOutput,
+  ScanCommand,
+  ScanCommandInput,
+  ScanCommandOutput,
+  TransactWriteCommand,
+  TransactWriteCommandInput,
+  TransactWriteCommandOutput,
+} from '@aws-sdk/lib-dynamodb';
 
-const documentClient = new AWS.DynamoDB.DocumentClient();
+const fullClient = new DynamoDBClient({});
+const documentClient = DynamoDBDocumentClient.from(fullClient);
 
 export const dynamodbService = {
-  getItem: async ({ key, value, tableName }): Promise<GetItemOutput> => {
+  getItem: async ({ key, value, tableName }): Promise<GetCommandOutput> => {
     try {
       const params = {
         TableName: tableName,
@@ -24,46 +32,54 @@ export const dynamodbService = {
           [key]: value,
         },
       };
-      return await documentClient.get(params).promise();
+      const command = new GetCommand(params);
+      return await documentClient.send(command);
     } catch (error) {
       throw Error(
         `There was an error fetching the data for ${key} of ${value} from ${tableName}`
       );
     }
   },
-  query: async (params: QueryItem): Promise<QueryItemOutput> => {
+  query: async (params: QueryCommandInput): Promise<QueryCommandOutput> => {
     try {
-      return await documentClient.query(params).promise();
+      const command = new QueryCommand(params);
+      return await documentClient.send(command);
     } catch (error) {
       throw Error(`query-error: ${error}`);
     }
   },
-  scan: async (params: ScanItem): Promise<ScanItemOutput> => {
+  scan: async (params: ScanCommandInput): Promise<ScanCommandOutput> => {
     try {
-      return await documentClient.scan(params).promise();
+      const command = new ScanCommand(params);
+      return await documentClient.send(command);
     } catch (error) {
       throw Error(`scan-error: ${error}`);
     }
   },
-  batchGetItem: async (params: BatchGetItem): Promise<BatchGetItemOutput> => {
+  batchGetItem: async (
+    params: BatchGetCommandInput
+  ): Promise<BatchGetCommandOutput> => {
     try {
-      return await documentClient.batchGet(params).promise();
+      const command = new BatchGetCommand(params);
+      return await documentClient.send(command);
     } catch (error) {
       throw Error(`batch-read-error: ${error}`);
     }
   },
-  create: async (params: PutItem): Promise<PutItemOutput> => {
+  create: async (params: PutCommandInput): Promise<PutCommandOutput> => {
     try {
-      return await documentClient.put(params).promise();
+      const command = new PutCommand(params);
+      return await documentClient.send(command);
     } catch (error) {
       throw Error(`create-error: ${error}`);
     }
   },
   transactCreate: async (
-    params: TransactWriteItems
-  ): Promise<TransactWriteItemsOutput> => {
+    params: TransactWriteCommandInput
+  ): Promise<TransactWriteCommandOutput> => {
     try {
-      return await documentClient.transactWrite(params).promise();
+      const command = new TransactWriteCommand(params);
+      return await documentClient.send(command);
     } catch (error) {
       throw Error(`transact-create-error: ${error}`);
     }

@@ -4,5 +4,7 @@
     "Content-Type": "application/json"
   },
   "body": null,
-  "pathParameters": { "productId": "2aaafc6b-dec9-49c7-bc2b-615c48366e82" }
+  "queryStringParameters": {
+    "name": "testFile.csv"
+  }
 }
