@@ -3,7 +3,7 @@ import {
   getProductsList,
   getProductsById,
   createProduct,
-} from '@functions/products';
+} from '@store/functions/products';
 
 const serverlessConfiguration: AWS = {
   service: 'shop-cloudx-backend-api',
@@ -61,22 +61,6 @@ const serverlessConfiguration: AWS = {
       define: { 'require.resolve': undefined },
       platform: 'node',
       concurrency: 10,
-    },
-    productsTable:
-      '${self:service}-products-table-${opt:stage, self:provider.stage}',
-    stocksTable:
-      '${self:service}-stocks-table-${opt:stage, self:provider.stage}',
-    dynamodb: {
-      stages: ['dev'],
-      start: {
-        port: 8008,
-        inMemory: true,
-        heapInitial: '200m',
-        heapMax: '1g',
-        migrate: true,
-        seed: true,
-        convertEmptyValues: true,
-      },
     },
   },
 };

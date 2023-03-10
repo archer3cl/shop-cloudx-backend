@@ -30,7 +30,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Product'
-    post:
+    put:
       tags:
         - products
       summary: Add a new product to the store

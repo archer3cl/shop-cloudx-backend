@@ -1,4 +1,3 @@
-const middy = {
-  ...jest.requireActual('@middy/core'),
-};
-module.exports = middy;
+const middy = jest.requireActual('@middy/core');
+
+export default middy;

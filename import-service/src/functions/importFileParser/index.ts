@@ -4,10 +4,10 @@ export default {
   handler: `${handlerPath(__dirname)}/handler.main`,
   events: [
     {
-      http: {
-        method: 'put',
-        path: 'products',
-        cors: true,
+      s3: {
+        bucket: 'importServiceBucket',
+        event: 's3:ObjectCreated:*',
+        rules: [{ prefix: 'uploaded/' }, { suffix: '.csv' }],
       },
     },
   ],

@@ -9,3 +9,6 @@ services:
       stocksTableResource: ${dynamodb.StocksTableResource}
       productsTable: ${dynamodb.ProductsTableName}
       stocksTable: ${dynamodb.StocksTableName}
+
+  import-service:
+    path: import-service
