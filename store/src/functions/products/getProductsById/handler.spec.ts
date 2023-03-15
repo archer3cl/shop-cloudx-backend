@@ -2,7 +2,7 @@ import { mockedContext } from '../../../../../__mocks__/context';
 import { main } from './handler';
 import { mockClient } from 'aws-sdk-client-mock';
 import { DynamoDBDocumentClient, GetCommand } from '@aws-sdk/lib-dynamodb';
-import { databaseTables } from '@store/libs/db-utils';
+import { databaseTables } from '@libs/db-utils';
 
 jest.mock('@middy/core', () => require('../../../../../__mocks__/middy'));
 

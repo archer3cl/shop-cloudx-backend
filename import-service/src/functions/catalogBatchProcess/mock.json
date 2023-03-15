@@ -1,0 +1,36 @@
+{
+  "Records": [
+    {
+      "messageId": "a99e761c-9dcc-4d19-993f-b5837d032f15",
+      "receiptHandle": "AQEBcx9j5KxL2yx6u8XO290kVpYS//vQzyL5cV9PLfwxmlsW8s4yws4ejFJo2yXEiesBqpUHikITV67VkmtIOSQMG9yXN4iq/OZ9he+qR+1hniuqh39glStlzped68iS37c1K33wTjsQJbbUTOTqltmFPBX1i9vIIyPMLP0Qcj9cEoNSpIAEqlSAD+spJtRnJoPugrFtC9RXJLVgjluf/NI5puaPyIEKOJ4Q8d1gNAxKaXS3AmH6QiFV5C1MnSQ/BUareuoWoy12DW+ZZaAcykJ8byHZDynEMgrIpMdkGb0rxHjRmVQrLa7GTOTU+KZPdx5FeMjowMYvWfcLJp6BA4xe1nBOPeFl58H6dgFpVkgjuYjdO9Gu0iqbBjCVg7MORIvPoDm2eyv5gqGvKqIpOK5VKB5pnqwF2W+v9iUB9NhhKgfCBBRtTjiNBwehkCzKEkGR",
+      "body": "{\"title\":\"Refined Steel Mouse\",\"description\":\"The Refined Steel Mouse is the trademarked name of several series of Nagasaki sport bikes that started with the 1984 ABC800J\",\"price\":\"9240\",\"count\":\"16\"}",
+      "attributes": {
+        "ApproximateReceiveCount": "1",
+        "SentTimestamp": "1545082649183",
+        "SenderId": "AIDAIENQZJOLO23YVJ4VO",
+        "ApproximateFirstReceiveTimestamp": "1545082649185"
+      },
+      "messageAttributes": {},
+      "md5OfBody": "4d1970b0973490f379f38c8af922a84b",
+      "eventSource": "aws:sqs",
+      "eventSourceARN": "arn:aws:sqs:us-east-2:720608073116:shop-cloudx-import-service-dev-catalogItemsQueue",
+      "awsRegion": "us-east-2"
+    },
+    {
+      "messageId": "c500dd63-160c-4491-9651-07896d9e698e",
+      "receiptHandle": "AQEBBejCvsIGqC8z4SgzuqOB6p23VF2YYcMDVaUNEHpnGf5SE8ircjJLnAt3ALQ2XB2pNLqq2kXBZfTRrw06frTg1MYPKvSWoa7keN9p75lfEJqgMjzdiq6MWiSbiOrJXZZ0nFt/Wg+ICk5M7HU0bqggw2WmjQ/oSZ56UWR43gEokb8sYdObQ1ee13wgqQD6lQ6qy/Ei0413B/yDLLC7w1tTShkcmcu+UQVtXoU3VJvckn0FjeUHWYw8laL1jyE/c7S3iXXhUqQMIHNRmK/Cj4EFjGAcXXoYd63wvHLGtaMwl/dHwtYbThU//1PggIuDMdIo4TAaquiz9u+jmek8xt5EZphPMWAQTK0CHo4sJvdXxpyDZs15TXM6hmUFC+yeBN/rs7a4n80ABRktD30zPJE6re4B/oJ4HtWmywl5gH1L5l+SxfWbR8v1uB4dt2R/wdnC",
+      "body": "{\"title\":\"Tasty Soft Pants\",\"description\":\"Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support\",\"price\":\"1520\",\"count\":\"16\"}",
+      "attributes": {
+        "ApproximateReceiveCount": "1",
+        "SentTimestamp": "1545082649183",
+        "SenderId": "AIDAIENQZJOLO23YVJ4VO",
+        "ApproximateFirstReceiveTimestamp": "1545082649185"
+      },
+      "messageAttributes": {},
+      "md5OfBody": "fa2bd846b1719bbe7c7f2fbe242c5178",
+      "eventSource": "aws:sqs",
+      "eventSourceARN": "arn:aws:sqs:us-east-2:720608073116:shop-cloudx-import-service-dev-catalogItemsQueue",
+      "awsRegion": "us-east-2"
+    }
+  ]
+}

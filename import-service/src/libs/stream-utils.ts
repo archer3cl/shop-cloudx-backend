@@ -5,7 +5,11 @@ export const readCsv = async (stream: Readable): Promise<any[]> =>
   new Promise((resolve, reject) => {
     const records = [];
     stream
-      .pipe(csvParser())
+      .pipe(
+        csvParser({
+          mapHeaders: ({ header }) => header.toLowerCase(),
+        })
+      )
       .on('data', (data) => records.push(data))
       .on('end', () => {
         resolve(records);

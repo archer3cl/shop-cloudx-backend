@@ -1,8 +1,8 @@
 import { Responses } from '@libs/api-responses';
-import { databaseTables } from '@store/libs/db-utils';
+import { databaseTables } from '@libs/db-utils';
 import { middyfyCors } from '@libs/lambda';
 import { APIGatewayProxyResult } from 'aws-lambda';
-import { dynamodbService } from '@store/services/dynamodb.service';
+import { dynamodbService } from '@services/dynamodb.service';
 
 const getProductsList = async (): Promise<APIGatewayProxyResult> => {
   const { productsTable, stocksTable } = databaseTables();

@@ -9,14 +9,15 @@ import { bodySchemaValidator } from '@libs/middy-utils';
 import { Schema } from 'yup';
 
 export const middyfy = (handler) => {
-  return middy(handler)
-    .use(httpHeaderNormalizer())
-    .use(httpErrorHandler())
-    .use(inputOutputLogger());
+  return middy(handler).use(inputOutputLogger());
+};
+
+export const middyfyHttp = (handler) => {
+  return middyfy(handler).use(httpHeaderNormalizer()).use(httpErrorHandler());
 };
 
 export const middyfyCors = (handler) => {
-  return middyfy(handler).use(cors());
+  return middyfyHttp(handler).use(cors());
 };
 
 export const middifyHttpRequest = (handler) => {

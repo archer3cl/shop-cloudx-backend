@@ -1,11 +1,8 @@
 import { Responses } from '@libs/api-responses';
 import { middyfyBodyValidator } from '@libs/lambda';
-import { databaseTables } from '@store/libs/db-utils';
-import { dynamodbService } from '@store/services/dynamodb.service';
-import {
-  AvailableProduct,
-  AvailableProductSchema,
-} from '@store/models/Product';
+import { databaseTables } from '@libs/db-utils';
+import { dynamodbService } from '@services/dynamodb.service';
+import { AvailableProduct, AvailableProductSchema } from '@models/Product';
 import { randomUUID } from 'crypto';
 
 const createProduct = async (event) => {
