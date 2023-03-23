@@ -1,9 +1,9 @@
 import { Responses } from '@libs/api-responses';
 import { middyfyCors } from '@libs/lambda';
-import { databaseTables } from '@store/libs/db-utils';
+import { databaseTables } from '@libs/db-utils';
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import { AvailableProduct } from '@store/models/Product';
-import { dynamodbService } from '@store/services/dynamodb.service';
+import { AvailableProduct } from '@models/Product';
+import { dynamodbService } from '@services/dynamodb.service';
 
 const getProductsById = async (
   event: APIGatewayProxyEvent

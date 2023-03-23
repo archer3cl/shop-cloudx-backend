@@ -17,7 +17,8 @@
     "store/serverless.ts",
     "import-service/src/**/*.ts",
     "import-service/serverless.ts",
-    "libs/**/*.ts"
+    "libs/**/*.ts",
+    "models/**/*.ts"
   ],
   "exclude": [
     "node_modules/**/*",

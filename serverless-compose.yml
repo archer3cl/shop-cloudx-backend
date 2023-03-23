@@ -12,3 +12,8 @@ services:
 
   import-service:
     path: import-service
+    params:
+      productsTableResource: ${dynamodb.ProductsTableResource}
+      stocksTableResource: ${dynamodb.StocksTableResource}
+      productsTable: ${dynamodb.ProductsTableName}
+      stocksTable: ${dynamodb.StocksTableName}

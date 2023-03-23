@@ -3,6 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "@libs/*": ["libs/*"],
+      "@models/*": ["models/*"],
+      "@services/*": ["services/*"],
       "@store/*": ["store/src/*"],
       "@import-service/*": ["import-service/src/*"]
     }

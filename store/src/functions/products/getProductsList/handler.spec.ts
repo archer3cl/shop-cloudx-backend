@@ -6,7 +6,7 @@ import {
   DynamoDBDocumentClient,
   ScanCommand,
 } from '@aws-sdk/lib-dynamodb';
-import { databaseTables } from '@store/libs/db-utils';
+import { databaseTables } from '@libs/db-utils';
 
 jest.mock('@middy/core', () => require('../../../../../__mocks__/middy'));
 

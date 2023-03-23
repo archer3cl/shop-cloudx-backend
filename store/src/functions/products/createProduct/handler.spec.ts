@@ -6,7 +6,7 @@ import {
   TransactWriteCommand,
 } from '@aws-sdk/lib-dynamodb';
 import * as crypto from 'crypto';
-import { databaseTables } from '@store/libs/db-utils';
+import { databaseTables } from '@libs/db-utils';
 
 jest.mock('crypto', () => ({
   randomUUID: jest.fn(),
