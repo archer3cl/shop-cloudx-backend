@@ -17,6 +17,8 @@
     "store/serverless.ts",
     "import-service/src/**/*.ts",
     "import-service/serverless.ts",
+    "authorization-service/src/**/*.ts",
+    "authorization-service/serverless.ts",
     "libs/**/*.ts",
     "models/**/*.ts"
   ],

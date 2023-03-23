@@ -2,6 +2,9 @@ services:
   dynamodb:
     path: dynamodb
 
+  authorization-service:
+    path: authorization-service
+
   store:
     path: store
     params:
@@ -17,3 +20,4 @@ services:
       stocksTableResource: ${dynamodb.StocksTableResource}
       productsTable: ${dynamodb.ProductsTableName}
       stocksTable: ${dynamodb.StocksTableName}
+      authArn: ${authorization-service.AuthorizerFunctionARN}
