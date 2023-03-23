@@ -4,8 +4,10 @@
   "description": "Product Service",
   "main": "store/serverless.ts",
   "scripts": {
-    "task6:print": "sls print --service=import-service",
-    "task6:local:catalog-batch-process": "sls invoke local --service=import-service -f catalogItemsQueueWorker --path src/functions/catalogBatchProcess/mock.json",
+    "task7:print": "sls print --service=authorization-service",
+    "task7:local:basicAuthorizer": "sls invoke local --service=authorization-service -f basicAuthorizer --path src/functions/basicAuthorizer/mock.json",
+    "authorization-service:setup": "sls deploy --service=authorization-service",
+    "authorization-service:remove": "sls remove --service=authorization-service",
     "cloudformation:setup": "sls deploy",
     "cloudformation:remove": "sls remove",
     "dynamodb:remove": "sls remove --service=dynamodb",

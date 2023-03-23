@@ -6,7 +6,8 @@
       "@models/*": ["models/*"],
       "@services/*": ["services/*"],
       "@store/*": ["store/src/*"],
-      "@import-service/*": ["import-service/src/*"]
+      "@import-service/*": ["import-service/src/*"],
+      "@authorization-service/*": ["authorization-service/src/*"]
     }
   }
 }
